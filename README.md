@@ -237,6 +237,52 @@ bun run build
 4. **Vite**: Fast HMR and optimized production builds
 5. **In-memory Storage**: Quick data access (can be upgraded to SQLite)
 
+## Troubleshooting
+
+### Dependencies not installing correctly
+
+If you encounter issues with dependencies, install them in each workspace:
+
+```bash
+bun install
+cd backend && bun install && cd ..
+cd frontend && bun install && cd ..
+cd wasm && bun install && cd ..
+```
+
+### WASM build fails
+
+If the WASM build fails, ensure AssemblyScript is installed:
+
+```bash
+cd wasm
+bun install
+bun run build
+```
+
+The build uses `bun x assemblyscript` which automatically downloads and runs the compiler.
+
+### "Script not found" error
+
+Make sure you're running commands from the root directory:
+
+```bash
+cd /path/to/bun-todo
+./start.sh
+# or
+bun run dev
+```
+
+### Ports already in use
+
+If port 3000 or 5173 is already in use, you can modify:
+- Backend port: Edit `backend/src/index.ts` line 207 (`.listen(3000)`)
+- Frontend port: Edit `frontend/vite.config.ts` line 6 (`port: 5173`)
+
+### CORS errors
+
+Make sure the backend is running on port 3000, or update the API base URL in `frontend/src/api.ts` line 3.
+
 ## Future Enhancements
 
 - [ ] Add SQLite database for persistent storage
