@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "asbuild:debug": "node_modules/.bin/asc src/index.ts --target debug --outFile build/debug.wasm --exportRuntime",
-    "asbuild:release": "node_modules/.bin/asc src/index.ts --target release --outFile build/release.wasm --optimize --exportRuntime",
+    "asbuild:debug": "bun x assemblyscript src/index.ts --target debug --outFile build/debug.wasm --exportRuntime",
+    "asbuild:release": "bun x assemblyscript src/index.ts --target release --outFile build/release.wasm --optimize --exportRuntime",
     "build": "bun run asbuild:release",
     "build:debug": "bun run asbuild:debug"
   },
