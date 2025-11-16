@@ -22,16 +22,19 @@ echo -e "${GREEN}✓ Bun detected: $(bun --version)${NC}"
 echo ""
 
 # Install dependencies if node_modules doesn't exist
-if [ ! -d "node_modules" ]; then
+if [ ! -d "backend/node_modules" ] || [ ! -d "frontend/node_modules" ] || [ ! -d "wasm/node_modules" ]; then
     echo -e "${YELLOW}📦 Installing dependencies...${NC}"
     bun install
+    cd backend && bun install && cd ..
+    cd frontend && bun install && cd ..
+    cd wasm && bun install && cd ..
     echo ""
 fi
 
 # Build WASM if not already built
 if [ ! -f "wasm/build/release.wasm" ]; then
     echo -e "${YELLOW}🔧 Building WASM module...${NC}"
-    bun run build:wasm
+    cd wasm && bun run build && cd ..
     echo ""
 fi
 

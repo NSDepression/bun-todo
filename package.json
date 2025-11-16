@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "A modern todo app using ElysiaJS, Bun, React, and WASM",
   "type": "module",
-  "workspaces": ["backend", "frontend", "wasm"],
   "scripts": {
-    "dev": "bun run --filter backend dev & bun run --filter frontend dev",
-    "dev:backend": "bun run --filter backend dev",
-    "dev:frontend": "bun run --filter frontend dev",
-    "build:wasm": "bun run --filter wasm build",
-    "build": "bun run build:wasm && bun run --filter backend build && bun run --filter frontend build",
-    "start": "bun run --filter backend start"
+    "dev": "cd backend && bun run dev & cd frontend && bun run dev & wait",
+    "dev:backend": "cd backend && bun run dev",
+    "dev:frontend": "cd frontend && bun run dev",
+    "build:wasm": "cd wasm && bun run build",
+    "build:frontend": "cd frontend && bun run build",
+    "build": "bun run build:wasm && bun run build:frontend",
+    "start": "cd backend && bun run start"
   },
   "devDependencies": {
     "bun-types": "^1.3.2"
