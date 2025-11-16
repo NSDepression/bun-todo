@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "build": "bun build src/index.ts --outdir=dist --target=bun"
+  },
+  "dependencies": {
+    "elysia": "^1.2.0",
+    "@elysiajs/cors": "^1.2.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.3.2"
+  }
+}

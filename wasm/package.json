@@ -1,0 +1,14 @@
+{
+  "name": "wasm",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "asbuild:debug": "asc src/index.ts --target debug --outFile build/debug.wasm --exportRuntime",
+    "asbuild:release": "asc src/index.ts --target release --outFile build/release.wasm --optimize --exportRuntime",
+    "build": "npm run asbuild:release",
+    "build:debug": "npm run asbuild:debug"
+  },
+  "dependencies": {
+    "assemblyscript": "^0.27.0"
+  }
+}
