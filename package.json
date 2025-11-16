@@ -4,7 +4,7 @@
   "description": "A modern todo app using ElysiaJS, Bun, React, and WASM",
   "type": "module",
   "scripts": {
-    "dev": "cd backend && bun run dev & cd frontend && bun run dev & wait",
+    "dev": "(cd backend && bun run dev) & (cd frontend && bun run dev) & wait",
     "dev:backend": "cd backend && bun run dev",
     "dev:frontend": "cd frontend && bun run dev",
     "build:wasm": "cd wasm && bun run build",
